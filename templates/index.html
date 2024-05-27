@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+    <meta http-equiv="refresh" content="60">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Version</th>
+                <th>Station ID</th>
+                <th>Local IP</th>
+                <th>Date Time</th>
+                <th>Uptime</th>
+                <th>Relay Status</th>
+                <th>Station Status</th>
+                <th>EVSE Status</th>
+                <th>Elapsed Time</th>
+                <th>Amps</th>
+                <th>AC Voltage</th>
+                <th>DC Voltage</th>
+                <th>Temperature</th>
+                <th>Wattage</th>
+                <th>Free Heap</th>
+                <th>Last KWH</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in data %}
+                <tr>
+                    <td>{{ entry['version'] }}</td>
+                    <td>{{ entry['station_id'] }}</td>
+                    <td>{{ entry['local_ip'] }}</td>
+                    <td>{{ entry['date_time'] }}</td>
+                    <td>{{ entry['uptime'] }}</td>
+                    <td>{{ entry['relay_status'] }}</td>
+                    <td>{{ entry['station_status'] }}</td>
+                    <td>{{ entry['evse_status'] }}</td>
+                    <td>{{ entry['elapsed_time'] }}</td>
+                    <td>{{ entry['amps'] }}</td>
+                    <td>{{ entry['ac_voltage'] }}</td>
+                    <td>{{ entry['dc_voltage'] }}</td>
+                    <td>{{ entry['temperature'] }}</td>
+                    <td>{{ entry['wattage'] }}</td>
+                    <td>{{ entry['free_heap'] }}</td>
+                    <td>{{ entry['last_kwh'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
